@@ -1,5 +1,6 @@
 export const AppConstants = {
     APP_TITLE: "GitHub Repo App",
     SEARCH_ENGINE_REPO_NAME_TITLE: "Nombre del repositorio:",
-    SEARCH_ENGINE_BUTTON_TITLE: "Buscar Coincidencias"
+    SEARCH_ENGINE_BUTTON_TITLE: "Buscar Coincidencias",
+    REPOS_SEARCH_URL: "https://api.github.com/search/repositories?q="
  };
