@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GhSearchEngineComponent } from './gh-search-engine/gh-search-engine.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ResultsGridComponent } from './results-grid/results-grid.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GhSearchEngineComponent
+    GhSearchEngineComponent,
+    ResultsGridComponent
   ],
   imports: [
     BrowserModule,
