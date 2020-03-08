@@ -1,0 +1,18 @@
+img {
+    height: 50px;
+    width: 50px;
+}
+
+table {
+    width: 100%;
+    border: 1px black solid;
+    text-align: center;
+}
+
+td {
+    border: 1px black solid;
+}
+
+tr:nth-child(even) {
+    background-color: lightgray;
+}

@@ -1,1 +1,18 @@
-<p>results-grid works!</p>
+<div name="results-grid-main-box">
+    <table>
+        <tr>
+            <td>{{ AVATAR_IMG_TITLE }}</td>
+            <td>{{ NAME_TITLE }}</td>
+            <td>{{ FORKS_TITLE }}</td>
+            <td>{{ WATCHERS_TITLE }}</td>
+            <td>{{ OPEN_ISSUES_TITLE }}</td>
+        </tr>
+        <tr *ngFor="let result of resultsList">
+            <td><img src="{{ result.avatarUrl }}"></td>
+            <td>{{ result.name }}</td>
+            <td>{{ result.forks }}</td>
+            <td>{{ result.watchers }}</td>
+            <td>{{ result.openIssues }}</td>
+        </tr>
+    </table>
+</div>

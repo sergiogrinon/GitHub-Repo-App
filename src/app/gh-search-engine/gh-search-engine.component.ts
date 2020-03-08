@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppConstants } from '../app.constants';
 import { AppServiceService } from "../app-service.service"
 import { Config } from 'protractor';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-gh-search-engine',
@@ -16,15 +17,19 @@ export class GhSearchEngineComponent implements OnInit {
   repoName : string = 'Angular';
   reposData : Config;
   isLoading : boolean = false;
+  showResultsGrid : boolean;
   rowObjectsList = new Array;
 
-  constructor(private appService: AppServiceService) { 
+  constructor(private appService: AppServiceService, private appComponent : AppComponent) { 
     this.APP_TITLE = AppConstants.APP_TITLE;
     this.SEARCH_ENGINE_REPO_NAME_TITLE = AppConstants.SEARCH_ENGINE_REPO_NAME_TITLE;
     this.SEARCH_ENGINE_BUTTON_TITLE = AppConstants.SEARCH_ENGINE_BUTTON_TITLE;
   }
 
   ngOnInit() {
+    this.rowObjectsList = this.appComponent.resultLis;
+    this.showResultsGrid = this.appComponent.showResultGrid;
+    console.log(this.appComponent);
   }
 
   
@@ -33,8 +38,7 @@ export class GhSearchEngineComponent implements OnInit {
     this.appService.getGitHubApiData(this.repoName).toPromise().then(response => {
       this.reposData = response;
       this.generateRowObjectsWithResponseData(this.reposData.items);
-      console.log(this.rowObjectsList);
-      console.log(this.reposData);
+      this.showResultsGrid = true;
       this.isLoading = false;
     });
   }
@@ -48,7 +52,7 @@ export class GhSearchEngineComponent implements OnInit {
       rowObject['watchers'] = data[i].watchers;
       rowObject['avatarUrl'] = data[i].owner.avatar_url;
 
-      this.rowObjectsList.push(rowObject);
+      this.appComponent.resultLis.push(rowObject);
     }
   }
 

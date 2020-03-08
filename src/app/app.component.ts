@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'github-repo-app';
+  public resultLis = new Array;
+  public showResultGrid;
 }
