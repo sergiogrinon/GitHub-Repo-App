@@ -15,6 +15,7 @@ export class GhSearchEngineComponent implements OnInit {
   SEARCH_ENGINE_BUTTON_TITLE : string;
   repoName : string = 'Angular';
   reposData : Config;
+  isLoading : boolean = false;
 
   constructor(private appService: AppServiceService) { 
     this.APP_TITLE = AppConstants.APP_TITLE;
@@ -25,11 +26,13 @@ export class GhSearchEngineComponent implements OnInit {
   ngOnInit() { 
   }
 
-  //Should add a loading gif while the results are being charged and the table displayed
+  
   searchResults() {
+    this.isLoading = true; //Shows the loading gif
     this.appService.getGitHubApiData(this.repoName).toPromise().then(response => {
       this.reposData = response;
       console.log(this.reposData);
+      this.isLoading = false; //Hides the loading gif
     });
   }
 

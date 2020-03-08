@@ -8,4 +8,7 @@
     <div name="repo-name-search-button">
         <button (click)="searchResults()">{{SEARCH_ENGINE_BUTTON_TITLE}}</button>
     </div>
+    <div name="loading-gif-box" *ngIf="isLoading">
+        <img src="/assets/images/loading.gif">
+    </div>
 </div>
